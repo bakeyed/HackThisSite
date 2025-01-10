@@ -110,8 +110,38 @@ HTTP cookies can be used to check if users have been authenticated. Since Sam do
 
 ![image](https://github.com/user-attachments/assets/4e3a9734-1130-44a9-8691-133a9f24bbbb)
 
-### Mission 11: 
+### Mission 11:  
 
-Sam decided to make a music site. Unfortunately he does not understand Apache. This mission is a bit harder than the other basics.
+Sam decided to make a music site. Unfortunately, he does not understand Apache. This mission is a bit harder than the other basics.  
 
-> Hint: Music site and Apache knowledge
+> **Hint**: Music site and Apache knowledge  
+
+Apache servers often use configuration files such as `.htaccess` to handle directories and file access permissions.  
+
+In this mission, visiting the provided link doesn't directly ask for a password. Instead, it displays lyrics from Elton John songs. However, navigating deeper into the directory (`https://www.hackthissite.org/missions/basic/11/e/l/t/o/n/`) reveals a `.htaccess` file.  
+
+The `.htaccess` file contains:  
+```  
+IndexIgnore DaAnswer.* .htaccess  
+<Files .htaccess>  
+require all granted  
+</Files>  
+```  
+
+This indicates that files matching `DaAnswer.*` are ignored unless accessed directly. Visiting `https://www.hackthissite.org/missions/basic/11/e/l/t/o/n/DaAnswer` gives a clue:  
+> "The answer is around! Just look a little harder."  
+
+The real trick is in the message. The word **"around"** is the actual answer. Navigating back to `index.php` and entering `around` as the password completes the mission.  
+
+**Key Tools Used:**  
+- Knowledge of Apache `.htaccess` files  
+- Understanding directory navigation and file access  
+
+**Optional Commands:**  
+Using `dirb` to brute force directory contents:  
+```bash  
+sudo dirb https://www.hackthissite.org/missions/basic/11/ wordlist.txt -w  
+```  
+
+This command reveals hidden files and directories. However, a manual approach with attention to `.htaccess` logic is sufficient for this mission.  
+
