@@ -36,6 +36,7 @@ An email script has been set up, which sends the password to the administrator. 
 > Hint: There is a script that emails the password to Sam
 
 The email the password is sent to can be easily changed via inspect element
+
 ![image](https://github.com/user-attachments/assets/83c7b93a-77e7-4e99-81ee-ed853c0ffdac)
 
 ### Mission 5:
