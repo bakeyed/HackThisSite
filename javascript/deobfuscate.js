@@ -19,4 +19,4 @@ let largeHexArray = [
   0x64, 0x3c, 0x2f, 0x62, 0x75, 0x74, 0x74, 0x6f, 0x6e, 0x3e,
 ];
 let result = largeHexArray.map((h) => String.fromCharCode(h)).join("");
-console.log(result); // Outputs: "Hello World"
+console.log(result);
